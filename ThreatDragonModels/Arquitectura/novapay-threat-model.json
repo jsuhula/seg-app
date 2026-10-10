@@ -1,0 +1,1834 @@
+{
+  "version": "2.x",
+  "summary": {
+    "title": "NovaPay Threat Model",
+    "owner": "Equipo SSDLC NovaPay",
+    "description": "Modelo de amenazas STRIDE de NovaPay (PCI-DSS v4.0, OWASP ASVS v4.0, NIST SP 800-63B, ISO/IEC 27001).",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Miembro 1"
+      },
+      {
+        "name": "Miembro 2"
+      },
+      {
+        "name": "Miembro 3"
+      },
+      {
+        "name": "Miembro 4"
+      },
+      {
+        "name": "Miembro 5"
+      },
+      {
+        "name": "Miembro 6"
+      }
+    ],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "DFD Nivel 0 - Contexto",
+        "diagramType": "STRIDE",
+        "placeholder": "Nuevo diagrama STRIDE",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.x",
+        "cells": [
+          {
+            "position": {
+              "x": 10,
+              "y": 150
+            },
+            "size": {
+              "width": 230,
+              "height": 400
+            },
+            "attrs": {
+              "headerText": {
+                "text": "Internet / Usuarios"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "d22a64f2-9380-4c6f-9489-45f9f91c2d7f",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Internet / Usuarios",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 380,
+              "y": 180
+            },
+            "size": {
+              "width": 340,
+              "height": 320
+            },
+            "attrs": {
+              "headerText": {
+                "text": "Perímetro NovaPay"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "d81b1c75-02d6-4288-8fa5-3da0ec820cac",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Perímetro NovaPay",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 820,
+              "y": 30
+            },
+            "size": {
+              "width": 240,
+              "height": 590
+            },
+            "attrs": {
+              "headerText": {
+                "text": "Terceros"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "3d5c682c-ca0b-48b5-84b0-3181fda7b8bb",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Terceros",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 200
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Cliente (usuario final)"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "132aad15-7488-4b74-af5b-2a51543f64fe",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Cliente (usuario final)",
+              "description": "Persona natural",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": true,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 420
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Administrador / Soporte"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "7934dd76-8a3b-4170-9503-1ac49c488848",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Administrador / Soporte",
+              "description": "Personal interno",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": true,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 440,
+              "y": 280
+            },
+            "size": {
+              "width": 220,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "Plataforma NovaPay"
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "122ea7e4-e53b-4af8-8550-6849172e7963",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "Plataforma NovaPay",
+              "description": "Sistema completo",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "handlesCardPayment": true,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 860,
+              "y": 80
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Core Bancario ACH"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "bc7b2670-4bae-4e6b-9093-b656e6255c98",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Core Bancario ACH",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 860,
+              "y": 290
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Visa / Mastercard"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "b15b47fc-e00a-4460-b5ce-bf2c9e705539",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Visa / Mastercard",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 860,
+              "y": 500
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "SMS Gateway"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "6a459389-b6b0-48fd-ac3a-06a41d242a23",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "SMS Gateway",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "f21e5a79-0a49-478b-a3c9-a1134e26b762",
+            "zIndex": 10,
+            "source": {
+              "cell": "132aad15-7488-4b74-af5b-2a51543f64fe"
+            },
+            "target": {
+              "cell": "122ea7e4-e53b-4af8-8550-6849172e7963"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Registro, login, pagos"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Registro, login, pagos",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/TLS 1.3",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "bc333b03-8e79-48f1-aafa-9054c6bd6d8b",
+            "zIndex": 10,
+            "source": {
+              "cell": "7934dd76-8a3b-4170-9503-1ac49c488848"
+            },
+            "target": {
+              "cell": "122ea7e4-e53b-4af8-8550-6849172e7963"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Administración y soporte"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Administración y soporte",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/VPN",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "95fdc874-83f9-43e4-ad5e-d8272570ba52",
+            "zIndex": 10,
+            "source": {
+              "cell": "122ea7e4-e53b-4af8-8550-6849172e7963"
+            },
+            "target": {
+              "cell": "bc7b2670-4bae-4e6b-9093-b656e6255c98"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Transferencias ACH"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Transferencias ACH",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "89f1bfc7-f708-494d-bcc0-2dc9435c5bb1",
+            "zIndex": 10,
+            "source": {
+              "cell": "122ea7e4-e53b-4af8-8550-6849172e7963"
+            },
+            "target": {
+              "cell": "b15b47fc-e00a-4460-b5ce-bf2c9e705539"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Autorización tarjeta"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Autorización tarjeta",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "505ce71b-6439-4617-862b-b289eadec5dc",
+            "zIndex": 10,
+            "source": {
+              "cell": "122ea7e4-e53b-4af8-8550-6849172e7963"
+            },
+            "target": {
+              "cell": "6a459389-b6b0-48fd-ac3a-06a41d242a23"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "OTP / SMS"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "OTP / SMS",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/API",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "title": "DFD Nivel 1 - Microservicios",
+        "diagramType": "STRIDE",
+        "placeholder": "Nuevo diagrama STRIDE",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.x",
+        "cells": [
+          {
+            "position": {
+              "x": 20,
+              "y": 0
+            },
+            "size": {
+              "width": 410,
+              "height": 470
+            },
+            "attrs": {
+              "headerText": {
+                "text": "Internet / Dispositivos del usuario"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "c4f64882-4c80-40d9-a4cf-70e078bffcfd",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Internet / Dispositivos del usuario",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 20,
+              "y": 510
+            },
+            "size": {
+              "width": 240,
+              "height": 150
+            },
+            "attrs": {
+              "headerText": {
+                "text": "Red corporativa (VPN)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "136b7de9-3e67-4ded-b743-cac5b8fd0ccb",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Red corporativa (VPN)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 530,
+              "y": 150
+            },
+            "size": {
+              "width": 230,
+              "height": 170
+            },
+            "attrs": {
+              "headerText": {
+                "text": "DMZ"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "472629fd-1e07-4ab5-aa21-b24b9736d459",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "DMZ",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 870,
+              "y": -40
+            },
+            "size": {
+              "width": 230,
+              "height": 720
+            },
+            "attrs": {
+              "headerText": {
+                "text": "Red interna de microservicios"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "fadb42a0-d5af-40a6-a1a4-afa39a5d4423",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Red interna de microservicios",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1270,
+              "y": -160
+            },
+            "size": {
+              "width": 230,
+              "height": 450
+            },
+            "attrs": {
+              "headerText": {
+                "text": "Zona de datos y secretos"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "974221cd-6c50-47d2-9009-be6306f0f220",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Zona de datos y secretos",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1670,
+              "y": -390
+            },
+            "size": {
+              "width": 230,
+              "height": 1080
+            },
+            "attrs": {
+              "headerText": {
+                "text": "Terceros"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "b679e06c-0a93-4267-b083-1d189ff91327",
+            "zIndex": 0,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Terceros",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 190
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Cliente"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "b3dba7a8-fffd-4139-9d59-80d3f0f9b966",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Cliente",
+              "description": "Usuario final",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": true,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 250,
+              "y": 60
+            },
+            "size": {
+              "width": 170,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "App Móvil (Flutter)"
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "6b00725b-25ac-44d2-bf1e-3410b6315063",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "App Móvil (Flutter)",
+              "description": "Biometría, almacenamiento seguro, certificate pinning",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 250,
+              "y": 320
+            },
+            "size": {
+              "width": 170,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "Portal Web (React)"
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "6e18ee05-d19f-408b-a4e5-4cf913927e59",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "Portal Web (React)",
+              "description": "SPA con CSP",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 560
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Administrador / Soporte"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "dd3a2aaa-b8f4-4ff3-a594-1f139827be23",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Administrador / Soporte",
+              "description": "Operación interna",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": true,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 560,
+              "y": 190
+            },
+            "size": {
+              "width": 170,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "API Gateway (Kong)"
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "da54518e-8ee6-4114-b57a-9162b51d04cf",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "API Gateway (Kong)",
+              "description": "AuthN/Z, rate limiting, WAF, TLS",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "DMZ",
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 900,
+              "y": 0
+            },
+            "size": {
+              "width": 170,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "MS Auth"
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "72f2eb2b-3ca5-4658-9772-3dbb15f14ec3",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "MS Auth",
+              "description": "Registro, login, MFA, JWT",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 900,
+              "y": 180
+            },
+            "size": {
+              "width": 170,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "MS Pagos"
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "2f78f01f-af59-472e-bd4e-76b9dcf14665",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "MS Pagos",
+              "description": "Orquestación de pagos y tarjetas",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "handlesCardPayment": true,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 900,
+              "y": 360
+            },
+            "size": {
+              "width": 170,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "MS Billetera"
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "5408e095-d4a0-4a6a-9510-bfd8f441bacc",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "MS Billetera",
+              "description": "Saldos y ledger",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 900,
+              "y": 540
+            },
+            "size": {
+              "width": 170,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "MS Notificaciones"
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "d1c27863-6419-44e6-b613-cf644c8472c1",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "MS Notificaciones",
+              "description": "Push, SMS, email",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1300,
+              "y": -120
+            },
+            "size": {
+              "width": 170,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Redis Cache"
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "562fda25-67e0-4b5f-b265-8be7285aa81e",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Store",
+              "name": "Redis Cache",
+              "description": "Sesiones y rate limit",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1300,
+              "y": 190
+            },
+            "size": {
+              "width": 170,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "PostgreSQL"
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "37f02437-cbfa-4419-a284-04187840eaa8",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Store",
+              "name": "PostgreSQL",
+              "description": "Usuarios, transacciones, ledger",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "isALog": false,
+              "isEncrypted": true,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1300,
+              "y": 20
+            },
+            "size": {
+              "width": 170,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "HashiCorp Vault"
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "986865b5-e1c5-4df9-b57d-571090079994",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Store",
+              "name": "HashiCorp Vault",
+              "description": "Secretos, claves, tokenización PAN",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "isALog": false,
+              "isEncrypted": true,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1700,
+              "y": -330
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Core Bancario ACH"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "260baea6-fe3b-479e-a7d9-ecb8e02e3d72",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Core Bancario ACH",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1700,
+              "y": -220
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Visa / Mastercard"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "5b286646-4fef-4f2d-8082-d4404bd49ce5",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Visa / Mastercard",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 1700,
+              "y": 550
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "SMS Gateway"
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "13034346-89d3-42f4-a54e-98b38fb84541",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "SMS Gateway",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "755dc774-0331-472d-8822-e225afe43364",
+            "zIndex": 10,
+            "source": {
+              "cell": "b3dba7a8-fffd-4139-9d59-80d3f0f9b966"
+            },
+            "target": {
+              "cell": "6b00725b-25ac-44d2-bf1e-3410b6315063"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Uso app"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Uso app",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "Local",
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "e1dc0bdb-f460-40ce-b125-8fb2ac2aba72",
+            "zIndex": 10,
+            "source": {
+              "cell": "b3dba7a8-fffd-4139-9d59-80d3f0f9b966"
+            },
+            "target": {
+              "cell": "6e18ee05-d19f-408b-a4e5-4cf913927e59"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Uso portal"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Uso portal",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/TLS 1.3",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "507f8f10-752a-468c-8763-03570950106b",
+            "zIndex": 10,
+            "source": {
+              "cell": "6b00725b-25ac-44d2-bf1e-3410b6315063"
+            },
+            "target": {
+              "cell": "da54518e-8ee6-4114-b57a-9162b51d04cf"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "API HTTPS (app)"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "API HTTPS (app)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/TLS 1.3",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "265193e6-6063-4807-8022-b2663a3147e6",
+            "zIndex": 10,
+            "source": {
+              "cell": "6e18ee05-d19f-408b-a4e5-4cf913927e59"
+            },
+            "target": {
+              "cell": "da54518e-8ee6-4114-b57a-9162b51d04cf"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "API HTTPS (web)"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "API HTTPS (web)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/TLS 1.3",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "762a6cef-ea7a-4f6c-bdea-9e03395202f0",
+            "zIndex": 10,
+            "source": {
+              "cell": "dd3a2aaa-b8f4-4ff3-a594-1f139827be23"
+            },
+            "target": {
+              "cell": "da54518e-8ee6-4114-b57a-9162b51d04cf"
+            },
+            "vertices": [
+              {
+                "x": 500,
+                "y": 600
+              }
+            ],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Consola admin"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Consola admin",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/VPN",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "2a8f7415-3890-4669-a9cb-e25c43705930",
+            "zIndex": 10,
+            "source": {
+              "cell": "da54518e-8ee6-4114-b57a-9162b51d04cf"
+            },
+            "target": {
+              "cell": "72f2eb2b-3ca5-4658-9772-3dbb15f14ec3"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Login / MFA"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Login / MFA",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "21d38896-1c26-4390-a17f-de213d6f299e",
+            "zIndex": 10,
+            "source": {
+              "cell": "da54518e-8ee6-4114-b57a-9162b51d04cf"
+            },
+            "target": {
+              "cell": "2f78f01f-af59-472e-bd4e-76b9dcf14665"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Solicitud de pago"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Solicitud de pago",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "e50665f1-526f-47b0-ae27-434d4fbb26df",
+            "zIndex": 10,
+            "source": {
+              "cell": "da54518e-8ee6-4114-b57a-9162b51d04cf"
+            },
+            "target": {
+              "cell": "5408e095-d4a0-4a6a-9510-bfd8f441bacc"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Consulta de saldo"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Consulta de saldo",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "90818f4a-eb91-4883-a58b-38627b34d970",
+            "zIndex": 10,
+            "source": {
+              "cell": "da54518e-8ee6-4114-b57a-9162b51d04cf"
+            },
+            "target": {
+              "cell": "d1c27863-6419-44e6-b613-cf644c8472c1"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Preferencias"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Preferencias",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "ad548f98-a311-4c29-9052-b3e05813b169",
+            "zIndex": 10,
+            "source": {
+              "cell": "2f78f01f-af59-472e-bd4e-76b9dcf14665"
+            },
+            "target": {
+              "cell": "5408e095-d4a0-4a6a-9510-bfd8f441bacc"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Débito / saldo"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Débito / saldo",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "c6be4269-ea30-4a1f-a2b7-d412bca68824",
+            "zIndex": 10,
+            "source": {
+              "cell": "2f78f01f-af59-472e-bd4e-76b9dcf14665"
+            },
+            "target": {
+              "cell": "d1c27863-6419-44e6-b613-cf644c8472c1"
+            },
+            "vertices": [
+              {
+                "x": 1085,
+                "y": 300
+              },
+              {
+                "x": 1085,
+                "y": 585
+              }
+            ],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Evento de pago"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Evento de pago",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "mTLS/cola",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "2ca27578-23d8-4145-9823-6b38c9b08e17",
+            "zIndex": 10,
+            "source": {
+              "cell": "72f2eb2b-3ca5-4658-9772-3dbb15f14ec3"
+            },
+            "target": {
+              "cell": "562fda25-67e0-4b5f-b265-8be7285aa81e"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Sesiones"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Sesiones",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "TLS/Redis",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "16e67ea0-f605-4e50-9f57-3e2558978b12",
+            "zIndex": 10,
+            "source": {
+              "cell": "72f2eb2b-3ca5-4658-9772-3dbb15f14ec3"
+            },
+            "target": {
+              "cell": "37f02437-cbfa-4419-a284-04187840eaa8"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Credenciales"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Credenciales",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "TLS/SQL",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "42f74228-cd85-4db9-a7cd-61f4f438b682",
+            "zIndex": 10,
+            "source": {
+              "cell": "72f2eb2b-3ca5-4658-9772-3dbb15f14ec3"
+            },
+            "target": {
+              "cell": "986865b5-e1c5-4df9-b57d-571090079994"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Claves"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Claves",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "07149e5b-b256-464a-951d-17d52faa8939",
+            "zIndex": 10,
+            "source": {
+              "cell": "2f78f01f-af59-472e-bd4e-76b9dcf14665"
+            },
+            "target": {
+              "cell": "37f02437-cbfa-4419-a284-04187840eaa8"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Transacciones"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Transacciones",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "TLS/SQL",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "b0c1b92c-0756-474c-a868-f317c7158c70",
+            "zIndex": 10,
+            "source": {
+              "cell": "2f78f01f-af59-472e-bd4e-76b9dcf14665"
+            },
+            "target": {
+              "cell": "986865b5-e1c5-4df9-b57d-571090079994"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Tokens PAN"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Tokens PAN",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "3dd77db7-c440-44e2-a63b-c2fd3289684f",
+            "zIndex": 10,
+            "source": {
+              "cell": "5408e095-d4a0-4a6a-9510-bfd8f441bacc"
+            },
+            "target": {
+              "cell": "37f02437-cbfa-4419-a284-04187840eaa8"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Ledger"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Ledger",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "TLS/SQL",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "bda36e1b-33c4-4d4a-9eb6-f6ebab0b55b9",
+            "zIndex": 10,
+            "source": {
+              "cell": "2f78f01f-af59-472e-bd4e-76b9dcf14665"
+            },
+            "target": {
+              "cell": "260baea6-fe3b-479e-a7d9-ecb8e02e3d72"
+            },
+            "vertices": [
+              {
+                "x": 1200,
+                "y": -295
+              }
+            ],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Transferencia ACH"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Transferencia ACH",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "fe84bedd-f30b-4ab2-bf2b-4318ce42d9f1",
+            "zIndex": 10,
+            "source": {
+              "cell": "2f78f01f-af59-472e-bd4e-76b9dcf14665"
+            },
+            "target": {
+              "cell": "5b286646-4fef-4f2d-8082-d4404bd49ce5"
+            },
+            "vertices": [
+              {
+                "x": 1240,
+                "y": -185
+              }
+            ],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Autorización tarjeta"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "Autorización tarjeta",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/mTLS",
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "id": "afd13e92-b05f-4011-9e65-c8ba3f9fc87c",
+            "zIndex": 10,
+            "source": {
+              "cell": "d1c27863-6419-44e6-b613-cf644c8472c1"
+            },
+            "target": {
+              "cell": "13034346-89d3-42f4-a54e-98b38fb84541"
+            },
+            "vertices": [],
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "SMS / OTP"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Flow",
+              "name": "SMS / OTP",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTPS/API",
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "threats": [],
+              "hasOpenThreats": false
+            }
+          }
+        ]
+      }
+    ],
+    "diagramTop": 2,
+    "reviewer": "",
+    "threatTop": 0
+  }
+}
